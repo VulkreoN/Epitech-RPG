@@ -1,0 +1,8 @@
+my_rpg
+*.a
+*.o
+*.*~
+vgcore.*
+*.tmp
+.save
+.vscode/
