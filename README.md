@@ -1,3 +1,8 @@
+[Maxence Folio]: https://github.com/Mfolio2004
+[Johan Sako]: https://github.com/JohannSako
+[Joris Vey]: https://github.com/jorisvey
+[Hakim REDJEM (me)]: https://github.com/VulkreoN/VulkreoN
+
 # MY RPG : "MEGA SUPER RONDOUDOU'S QUEST XIV ULTRA PART V DELUXE"
 
 ## BUILD
@@ -27,3 +32,15 @@ To launch the game you'll have to do `./my_rpg`
 * Fights
   * Use the arrow key to chose an action
   * ENTER to select it
+
+----
+
+**Made by :**
+* [Johan Sako]
+* [Joris VEY]
+* [Maxence Folio]
+* [Hakim REDJEM (me)]
+<br>
+We are Students at EPITECH Toulouse
+<br>
+(this project was made during our first year)
