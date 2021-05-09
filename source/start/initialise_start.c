@@ -10,8 +10,7 @@
 
 static void initialise_in_function_of_game_played(start_t *start)
 {
-    start->played = 0;
-    //SEEK WITH USERDATA FILE IF THERE IS ALREADY A SAVE
+    start->played = detect_save();
     if (start->played == 0) {
         start->play_disabled = sfTexture_createFromFile(
         "assets/menu/play_large_disabled.png", NULL);

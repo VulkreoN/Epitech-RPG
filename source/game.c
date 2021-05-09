@@ -33,6 +33,7 @@ static void display_in_game(game_t *game, player_t *player, map_t *map_t)
     handle_npc(game, player, map_t);
     if (game->adv.jerome == 1)
         handle_end_game(game);
+    get_tmp(game, map_t, player);
 }
 
 void gameloop(game_t *game)
@@ -57,5 +58,5 @@ void gameloop(game_t *game)
         sfRenderWindow_display(game->window);
     } free(player_t.foot_dir);
     free(player_t.foot_pos);
-    create_save(&player_t, game, &map_t);
+    create_save(game);
 }

@@ -15,22 +15,22 @@ static const int NO_ERROR = 0;
 static const int EPI_ERROR = 84;
 static char const *filepath = ".save";
 
-static void assign_save(char *str, int line, player_t *player, map_t *map)
+static void assign_save(char *str, int line, game_t *game)
 {
     if (line == 0 && my_str_isnum(str) == 1)
-        player->attack = my_atoi(str);
+        game->tmp.atk = my_atoi(str);
     if (line == 1 && my_str_isnum(str) == 1)
-        player->defense = my_atoi(str);
+        game->tmp.def = my_atoi(str);
     if (line == 2 && my_str_isnum(str) == 1)
-        player->money = my_atoi(str);
+        game->tmp.money = my_atoi(str);
     if (line == 3 && my_str_isnum(str) == 1)
-        player->lily = my_atoi(str);
+        game->tmp.lily = my_atoi(str);
     if (line == 4 && my_str_isnum(str) == 1)
-        player->pos.x = my_atoi(str);
+        game->tmp.cell.x = my_atoi(str);
     if (line == 5 && my_str_isnum(str) == 1)
-        player->pos.y = my_atoi(str);
+        game->tmp.cell.y = my_atoi(str);
     if (line == 6 && my_str_isnum(str) == 1)
-        map->indexScreen = my_atoi(str);
+        game->tmp.index = my_atoi(str);
 }
 
 static void assign_save_game(char *str, int line, game_t *game)
@@ -53,7 +53,7 @@ static void assign_save_game(char *str, int line, game_t *game)
         game->intro = my_atoi(str);
 }
 
-int load_save(player_t *player, game_t *game, map_t *map)
+int load_save(game_t *game)
 {
     FILE *save_file = fopen(filepath, "r");
     char *buffer = NULL;
@@ -66,7 +66,7 @@ int load_save(player_t *player, game_t *game, map_t *map)
     line_size = getline(&buffer, &size, save_file);
     while (line_size >= 0) {
         if (line_count <= 6)
-            assign_save(buffer, line_count, player, map);
+            assign_save(buffer, line_count, game);
         else
             assign_save_game(buffer, line_count, game);
         line_size = getline(&buffer, &size, save_file);

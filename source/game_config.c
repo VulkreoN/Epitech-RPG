@@ -37,10 +37,13 @@ void initialise_game_config(player_t *player, map_t *map,
 t_timeManager *timeManager, game_t *game)
 {
     initialise_player_config(player);
-    init_map(map);
+    map->indexScreen = 1;
     initi_time(timeManager, 0);
     map->wind = 0;
-    load_save(player, game, map);
+    if (game->save == 1)
+        load_save(game);
+    give_tmp(game, map, player);
+    init_map(map);
     make_game_first_scene(game);
 }
 
@@ -57,7 +60,7 @@ static void initialise_game_default_value(game_t *game)
 {
     game->mouse = 0;
     game->play_pause = 0;
-    game->volum = 50;
+    game->volum = 0;
     game->music = NULL;
     game->error = 0;
     game->talk = 0;
@@ -70,6 +73,7 @@ static void initialise_game_default_value(game_t *game)
     game->adv.rondoudou = 0;
     game->wise = 0;
     game->intro = 0;
+    initialise_game_tmp(game);
 }
 
 int initialise_game(game_t *game)

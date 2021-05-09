@@ -77,6 +77,15 @@
             int leave;
     } settings_t;
 
+    typedef struct tmp_s {
+        int atk;
+        int def;
+        int money;
+        int index;
+        sfVector2f cell;
+        int lily;
+    } tmp_t;
+
     typedef struct opponent_s {
         int covid;
         int rondodu;
@@ -101,6 +110,7 @@
         int wise;
         int intro;
         int save;
+        tmp_t tmp;
     } game_t;
 
     void mouse_handling(game_t *game, sfEvent event);
@@ -109,7 +119,7 @@
 
     void make_play_pause_redirection(game_t *game, settings_t *param);
 
-    int check_mouse_on_button(object_t *object, sfVector2i mouse, game_t *game);
+    int check_mouse_on_button(object_t *object, sfVector2i mous, game_t *game);
 
     void change_sprite(object_t *object, int texture);
 

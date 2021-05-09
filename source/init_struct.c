@@ -81,7 +81,6 @@ void init_screen(map_t *map_t)
 
 void init_map(map_t *map_t)
 {
-    map_t->indexScreen = 1;
     init_screen(map_t);
     init_pnj(&map_t->pnj_t[0], map_t);
 }

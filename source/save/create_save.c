@@ -26,7 +26,7 @@ static int create_new_file(int fd, char const *filepath)
     return fd;
 }
 
-int create_save(player_t *player, game_t *game, map_t *map)
+int create_save(game_t *game)
 {
     char const *filepath = ".save";
     mode_t mode = S_IRUSR | S_IRGRP | S_IROTH;
@@ -37,9 +37,9 @@ int create_save(player_t *player, game_t *game, map_t *map)
     if (open_status == -1)
         return EPI_ERROR;
     my_ldprintf(open_status, "%d\n%d\n%d\n%d\n%d\n%d\n"
-    , player->attack, player->defense, player->money, player->lily
-    , (int)player->cell.x, (int)player->cell.y);
-    my_ldprintf(open_status, "%d\n", map->indexScreen);
+    , game->tmp.atk, game->tmp.def, game->tmp.money, game->tmp.lily
+    , (int)game->tmp.cell.x, (int)game->tmp.cell.y);
+    my_ldprintf(open_status, "%d\n", game->tmp.index);
     my_ldprintf(open_status, "%d\n%d\n%d\n%d\n%d\n%d\n%d\n%d",
     game->adv.covid, game->adv.jerome, game->adv.maxence, game->adv.pops
     , game->adv.rondodu, game->adv.rondoudou, game->adv.wise, game->intro);

@@ -10,7 +10,7 @@
 
 void move_flash(fight_t *fight)
 {
-    for (int i = 0; i<fight->nb_flash;i++) {
+    for (int i = 0; i<fight->nb_flash; i++) {
         fight->flash[i]->move.x = 100;
         fight->flash[i]->move.y = 0;
         sfRectangleShape_move(fight->flash[i]->bar, fight->flash[i]->move);
@@ -62,8 +62,8 @@ int fight_loop(fight_t *fight, sfRenderWindow *window)
     return (0);
 }
 
-void start_fight_with_music(game_t *game, player_t *player,
-void (*opponent)(game_t *, player_t *))
+void start_fight_with_music(game_t *game, player_t *player, void (*opponent)
+(game_t *, player_t *))
 {
     destroy_music(game);
     opponent(game, player);

@@ -41,8 +41,8 @@ int handle_wise_bad_class(game_t *game, int key, sfBool display)
 static void handle_wise_text_rondodu(npc_t *wise, game_t *game)
 {
     if (game->adv.rondodu == 0) {
-        wise->text[3] = ("Albus Gandalf: Oublies pas de recuperer ton Rondoudou"
-        " je viens de le voir entrer dans Epitech");
+        wise->text[3] = ("Albus Gandalf: Oublies pas de recuperer ton"
+        " Rondoudou je viens de le voir entrer dans Epitech");
     } else if (game->adv.rondodu == 1) {
         wise->text[3] = ("Albus Gandalf: Tu as recupere Rondoudou bravo ! Il"
         " est maintenant temps pour toi d en finir avec la quete principale\n"

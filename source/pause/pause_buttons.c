@@ -27,6 +27,7 @@ static void handle_pause_param_menu(game_t *game, pause_t *pause)
 {
     if (pause->home->texture == 2) {
         destroy_music(game);
+        create_save(game);
         handle_starting(game);
     }
     else if (pause->param->texture == 2)

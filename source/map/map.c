@@ -26,11 +26,21 @@ int check_collide(sfVector2f cell, sfVector2f pos1, sfVector2f pos2)
     return (0);
 }
 
+sfBool check_map_windows_collision(sfVector2f cell)
+{
+    if (cell.x < 0 || cell.x > 50)
+        return (sfTrue);
+    else if (cell.y < 0 || cell.y > 34)
+        return (sfTrue);
+    return (sfFalse);
+}
+
 static sfBool find_map_collision(int index, sfVector2f cell,
 player_t *player, game_t *game)
 {
-    if (cell.x >= 9 && cell.x <= 17 && cell.y >= 10
+    if ((cell.x >= 9 && cell.x <= 17 && cell.y >= 10
     && cell.y <= 23 && index == 2 && game->adv.covid == 0)
+    || check_map_windows_collision(cell))
         return (sfTrue);
     switch (index) {
         case 3:
@@ -71,5 +81,6 @@ int index, int direction)
             break;
         default:
             break;
-    } return (find_map_collision(index, cell, player, game));
+    }
+    return (find_map_collision(index, cell, player, game));
 }

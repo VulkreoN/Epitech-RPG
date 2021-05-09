@@ -7,23 +7,21 @@
 
 #include "rpg.h"
 
-int check_click_start(game_t *game, start_t *start, sfMouseButtonEvent mouse)
+int check_click_start(game_t *game, start_t *start)
 {
-    sfVector2u start_size = sfTexture_getSize(start->new->pixel[0]);
-    sfVector2f start_pos = start->new->pos;
-    sfVector2u set_size = sfTexture_getSize(start->param->pixel[0]);
-    sfVector2f set_pos = start->param->pos;
-
     game->mouse = 0;
-    if (mouse.x >= start_pos.x && mouse.x <= start_pos.x + start_size.x) {
-        if (mouse.y >= start_pos.y && mouse.y <= start_pos.y + start_size.y) {
-            destroy_music(game);
-            gameloop(game);
-        }
+    if (start->new->texture == 2) {
+        destroy_music(game);
+        game->save = 0;
+        gameloop(game);
     }
-    else if (mouse.x >= set_pos.x && mouse.x <= set_pos.x + set_size.x)
-        if (mouse.y >= set_pos.y && mouse.y <= set_pos.y + set_size.y)
-            handle_settings(game);
+    else if (start->played == 1 && start->start->texture == 2) {
+        destroy_music(game);
+        game->save = 1;
+        gameloop(game);
+    }
+    if (start->param->texture == 2)
+        handle_settings(game);
     return (0);
 }
 
@@ -51,7 +49,7 @@ int analyse_start_event(start_t *start, game_t *game)
         || check_quit(start->quit, event) == 0)
             sfRenderWindow_close(game->window);
         else if (event.type == sfEvtMouseButtonReleased)
-            return (check_click_start(game, start, event.mouseButton));
+            return (check_click_start(game, start));
     } return (0);
 }
 

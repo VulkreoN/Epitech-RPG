@@ -81,6 +81,7 @@ SRC =	main.c 							\
 		map/map_collision.c				\
 		save/create_save.c	\
 		save/load_save.c	\
+		save/detect_save.c 		\
 		end/end.c				\
 		end/member_end.c 		\
 		outside.c			\
@@ -88,7 +89,10 @@ SRC =	main.c 							\
 		init_map.c			\
 		settings/how_to_play.c	\
 		input.c					\
-		first_scene.c
+		first_scene.c			\
+		game_tmp.c				\
+		init_furniture.c		\
+		find_furniture.c
 
 
 TESTS_SRC	=

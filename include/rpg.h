@@ -387,7 +387,31 @@
 
     void handle_johann_end(game_t *game, float y);
 
-    int create_save(player_t *player, game_t *game, map_t *map);
+    int create_save(game_t *game);
 
-    int load_save(player_t *player, game_t *game, map_t *map);
+    int load_save(game_t *game);
+
+    int detect_save(void);
+
+    void initialise_game_tmp(game_t *game);
+
+    void give_tmp(game_t *game, map_t *map, player_t *player);
+
+    void get_tmp(game_t *game, map_t *map, player_t *player);
+
+    void make_couch(enum house_furniture *cell, char *string);
+
+    void make_carpet(enum house_furniture *cell, char *string);
+
+    void make_table(enum house_furniture *cell, char *string);
+
+    void make_draco(enum house_furniture *cell, char *string);
+
+    void find_table_draco(enum house_furniture result, colone_t *cell,
+sfIntRect *area);
+
+    void find_desk_tr(enum house_furniture result, colone_t *cell,
+sfIntRect *area);
+
+    void init_chair(colone_t *cell, sfVector2f offset, sfIntRect *area);
 #endif

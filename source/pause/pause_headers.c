@@ -38,7 +38,7 @@ static void handle_skill(game_t *game, pause_t *pause)
     make_text(game->window, int_to_str(def_price), send_pos(1035, 425), 30);
     make_text(game->window, "SKILL", send_pos(890, 130), 50);
     handle_atk_def_display(game, pause);
-    sfRenderWindow_drawSprite(game->window, pause->skill->spr, NULL);   
+    sfRenderWindow_drawSprite(game->window, pause->skill->spr, NULL);
 }
 
 static void handle_player(game_t *game, pause_t *pause)

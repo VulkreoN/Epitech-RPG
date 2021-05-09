@@ -90,7 +90,7 @@
 
     void make_play_pause_redirection(game_t *game, settings_t *param);
 
-    int check_mouse_on_button(object_t *object, sfVector2i mouse, game_t *game);
+    int check_mouse_on_button(object_t *object, sfVector2i mous, game_t *game);
 
     void change_sprite(object_t *object, int texture);
 
