@@ -1,7 +1,7 @@
-[Maxence Folio]: https://github.com/Mfolio2004
-[Johan Sako]: https://github.com/JohannSako
-[Joris Vey]: https://github.com/jorisvey
-[Hakim REDJEM]: https://github.com/VulkreoN
+[Maxence FOLIO]: https://github.com/Mfolio2004
+[Johan SAKO]: https://github.com/JohannSako
+[Joris VEY]: https://github.com/jorisvey
+[Hakim REDJEM (me)]: https://github.com/VulkreoN
 
 # MY RPG : "MEGA SUPER RONDOUDOU'S QUEST XIV ULTRA PART V DELUXE"
 
@@ -36,10 +36,10 @@ To launch the game you'll have to do `./my_rpg`
 ----
 
 **Made by :**
-* [Johan Sako]
+* [Johan SAKO]
 * [Joris VEY]
-* [Maxence Folio]
-* [Hakim REDJEM]
+* [Maxence FOLIO]
+* [Hakim REDJEM (me)]
 <br>
 We are Students at EPITECH Toulouse
 <br>
