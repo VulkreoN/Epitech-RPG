@@ -37,7 +37,7 @@ void init_pnj(pnj_t *pnj_t, map_t *map_t)
     pnj_t->cell.x = 20;
     pnj_t->cell.y = 20;
     map_t->line[20].colone[20].isEmpty = sfFalse;
-    map_t->line[21].colone[20].isEmpty = sfFalse;
+    map_t->line[19].colone[20].isEmpty = sfFalse;
     pnj_t->indexMap = 1;
     pnj_t->text = "Maxence: Yo c'est Maxence, entraine toi en m'affrontant !";
 }
@@ -81,6 +81,8 @@ void init_screen(map_t *map_t)
 
 void init_map(map_t *map_t)
 {
+    if (map_t->indexScreen > 2)
+        return;
     init_screen(map_t);
     init_pnj(&map_t->pnj_t[0], map_t);
 }

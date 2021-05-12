@@ -34,7 +34,7 @@ static int print_map_texture(game_t *game, sfVector2f pos, int index)
 
 void display_map(game_t *game, map_t *map)
 {
-    switch(map->indexScreen) {
+    switch (map->indexScreen) {
         case 3:
             print_map_texture(game, send_pos(0, 0), 0);
             break;

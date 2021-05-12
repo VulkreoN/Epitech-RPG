@@ -20,8 +20,8 @@ void print_pnj(sfRenderWindow *window, pnj_t *pnj_t, int *indexScreen)
 
     pos.x = (pnj_t->cell.x) * WIDTH;
     pos.y = (pnj_t->cell.y) * HEIGHT;
-    pos.x *= 2.4;
-    pos.y *= 1.8;
+    pos.x = (pos.x * 2.4) + 10;
+    pos.y *= 1.7;
     if (*indexScreen == pnj_t->indexMap) {
         font = sfTexture_createFromFile("assets/pnj.png", &take);
         sp_font = sfSprite_create();
@@ -51,15 +51,10 @@ sfRenderWindow *window)
     sfSprite_destroy(sp_font);
 }
 
-sfBool can_interact(sfVector2f cell1, sfVector2i cell2)
+sfBool can_interact(sfVector2f cell1)
 {
-    if (cell1.y == cell2.y) {
-        if (cell1.x == cell2.x + 1 || cell1.x == cell2.x - 1)
-            return (sfTrue);
-    } else if (cell1.x == cell2.x) {
-        if (cell1.y == cell2.y - 1 || cell1.y == cell2.y + 2)
-            return (sfTrue);
-    }
+    if (check_collide(cell1, send_pos(20, 17), (send_pos(22, 20))))
+        return (sfTrue);
     return (sfFalse);
 }
 
@@ -81,7 +76,7 @@ void interact(game_t *game, player_t *player_t, map_t *map)
     sfVector2f dia = {300, 800};
     sfVector2f dia2 = {0, 763};
 
-    if (can_interact(player_t->cell, map->pnj_t->cell)
+    if (can_interact(player_t->cell)
     && map->indexScreen == 1) {
         print_text(game->window, "Press E to interact", pos, sfRed);
         if (sfKeyboard_isKeyPressed(sfKeyE) == sfTrue)

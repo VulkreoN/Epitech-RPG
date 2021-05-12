@@ -60,7 +60,7 @@ static void initialise_game_default_value(game_t *game)
 {
     game->mouse = 0;
     game->play_pause = 0;
-    game->volum = 0;
+    game->volum = 50;
     game->music = NULL;
     game->error = 0;
     game->talk = 0;
